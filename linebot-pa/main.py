@@ -91,8 +91,6 @@ def morning_brief():
 # เริ่ม scheduler
 scheduler = BackgroundScheduler(timezone=BKK)
 scheduler.add_job(check_upcoming_events, 'interval', minutes=5)
-scheduler.add_job(remind_if_start,  'cron', hour=12, minute=0)
-scheduler.add_job(remind_if_stop,   'cron', hour=20, minute=0)
 scheduler.add_job(morning_brief,    'cron', hour=7,  minute=0)
 scheduler.start()
 
