@@ -56,7 +56,7 @@ def push(text):
         api = MessagingApi(api_client)
         api.push_message(PushMessageRequest(
             to=MY_USER_ID,
-            messages=[TextMessage(type='text', text=text)]))
+            messages=[TextMessage(text=text)]))
 
 # ─── Scheduler: reminder อัตโนมัติ ────────────────────────
 def check_upcoming_events():
@@ -125,7 +125,7 @@ def handle_message(event):
         from linebot.v3.messaging import ReplyMessageRequest
         MessagingApi(api_client).reply_message(ReplyMessageRequest(
             replyToken=event.reply_token,
-            messages=[TextMessage(type='text', text=reply)]))
+            messages=[TextMessage(text=reply)]))
 
 @app.route("/")
 def index():
